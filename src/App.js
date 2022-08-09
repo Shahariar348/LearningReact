@@ -6,7 +6,7 @@ import CreateComponent from './Component/CreatCopponent';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
          <CreateComponent/>
     </div>
   );
