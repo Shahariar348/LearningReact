@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class StateFullComponent extends React.Component{
      
     state={
@@ -35,9 +36,10 @@ class StateFullComponent extends React.Component{
     render(){
      
         const {time}=this.state
+       
         return(
             <div>
-                <h1>Time : {time.toLocaleTimeString()}</h1>
+                <h1>Time : {time.toLocaleTimeString()}</h1>      
             </div>
         )
     }
