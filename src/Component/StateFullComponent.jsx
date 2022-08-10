@@ -10,24 +10,30 @@ class StateFullComponent extends React.Component{
    
     this.timeId=  setInterval(()=>{
         this.trck()
-        console.log("Set Interval")
+    
       },1000)
 
    }
   
  componentWillUnmount(){
     clearInterval(this.timeId)
-    console.log("Clear interval")
+ 
  }
     
    trck(){
-    this.setState({
+    // Using state correctly  
+    // this.state.time  never do that 
+     
+    this.setState((state,props)=>({
         time:new Date()
-    })
+    }))
+     
    }
+ 
 
+    
     render(){
-        console.log("Rander")
+     
         const {time}=this.state
         return(
             <div>
