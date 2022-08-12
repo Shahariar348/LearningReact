@@ -1,10 +1,14 @@
 import React from "react";
+import HandlingEvent2nd from "./HandlingEvent2nd";
+
 class Toggle extends React.Component{
   constructor(props){
     super(props)
      this.state={
       istoggle:true,
-      timeZone:""
+      timeZone:"",
+      text:"No, You click me",
+      clickCount:0
      }
 
       //this.handleClick=this.handleClick.bind(this)
@@ -19,9 +23,15 @@ class Toggle extends React.Component{
     ))
   }
 
+  CustomButton=(text)=>{
+     this.setState((state)=>({
+       text,
+       clickCount:state.clickCount+1
+     }))
+  }
 
   render(){
-    const {istoggle,timeZone}=this.state
+    const {istoggle,timeZone,text,clickCount}=this.state
 
     return(
       <div>
@@ -51,11 +61,22 @@ class Toggle extends React.Component{
           </button> */}
 
           {/*Passing  Data 2nd way in the Event Handler*/}
-           <h3>{timeZone}</h3>
+         {
+           (
+             istoggle ? " ":
+             <h3>{timeZone}</h3>
+
+           )
+         }
          <button type="button" onClick={(e)=>this.handleClick("Bangladesh Time Zone")}>
              {istoggle ? "ON" : "OFF"}
           </button>
-                    
+
+          <h3>{text}, {clickCount} Times</h3>
+          
+          <HandlingEvent2nd CustomButton={this.CustomButton} buttonPara={"Yes, You click me"}/>
+
+
       </div>
     )
   }
