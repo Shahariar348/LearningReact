@@ -3,6 +3,7 @@ import './App.css';
 import CreateComponent from './Component/CreatCopponent';
 import StateFullComponent from './Component/StateFullComponent';
 import Toggle from './Component/HandlingEvents';
+import FormHandle from './Component/FormHandle'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
          <CreateComponent/>
          <StateFullComponent/>
          <Toggle/>
+         <FormHandle/>
     </div>
   );
 }
