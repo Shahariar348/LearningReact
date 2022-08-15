@@ -1,26 +1,32 @@
-function myFunc(theObject) {
-    theObject.brand = "Toyota";
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  present(emoji,text) {
+    return  emoji+text+emoji;
   }
   
-  /*
-   * Declare variable 'mycar';
-   * create and initialize a new Object;
-   * assign reference to it to 'mycar'
-   */
-  const mycar = {
-    brand: "Honda",
-    model: "Accord",
-    year: 1998
-  };
   
-  /* Logs 'Honda' */
-  console.log(mycar.brand);
-  
-  /* Pass object reference to the function */
-  myFunc(mycar);
-  
-  /*
-   * Logs 'Toyota' as the value of the 'brand' property
-   * of the object, as changed to by the function.
-   */
-  console.log(mycar.brand);
+  show(text)
+  {
+    return text
+  }
+
+}
+
+class Model extends Car {
+  constructor(brand, mod) {
+     super(brand);
+    this.model = mod;
+  }
+  show() {
+    let textdecurator=this.present(" 🚓 ","I have a car,It's Awesome Car")
+    return super.show(textdecurator)
+  } 
+}
+
+let myCar = new Model("Ford", "Mustang");
+
+console.log(myCar.show())
+
+//🚓"I have a car,It's Awesome Car"

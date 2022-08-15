@@ -1,3 +1,4 @@
+
 import React from "react";
 
 export default class ControlledComponent extends React.Component{
@@ -6,7 +7,8 @@ export default class ControlledComponent extends React.Component{
         super(props)
         this.state={
             username:"",
-            useremail:""
+            useremail:"",
+            userinfo:{}
         }
     }
 
@@ -18,19 +20,23 @@ export default class ControlledComponent extends React.Component{
     }
     
     hadleSubmit=(e)=>{
-       
         e.preventDefault()
-  
-      console.log( this.state)
+        const reUser={
+            name:this.state.username,
+            email:this.state.useremail
+        }
+        this.setState({
+            userinfo:reUser
+        })
     }
     render(){
-        const {username,useremail} =this.state
+        const {username,useremail,userinfo} =this.state
         
         return(
            <div>
             <h3>Registration</h3>
                <form onSubmit={this.hadleSubmit}>
-                  <label>Name : </label>
+               <label>Name : </label>
                   <input 
                    type="text"
                    name="username" 
@@ -53,8 +59,17 @@ export default class ControlledComponent extends React.Component{
                     value="Submit "
                    />
                </form>
+
+             <div>
+
+                <h3>Name : {userinfo.name}</h3>
+                <h3>Email : {userinfo.email}</h3>
+
+             </div>
+
            </div> 
         )
     }
 
 }
+
